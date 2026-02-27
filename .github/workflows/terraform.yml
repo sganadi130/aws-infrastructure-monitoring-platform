@@ -27,6 +27,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Package Lambda functions
+        run: |
+          cd lambda
+          zip ec2_scheduler.zip ec2_scheduler.py
+          zip ebs_cleanup.zip ebs_cleanup.py
+          ls -la *.zip
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
