@@ -39,3 +39,9 @@ variable "private_subnets" {
   type        = list(string)
   default     = ["10.0.10.0/24", "10.0.20.0/24"]
 }
+
+variable "key_name" {
+  description = "EC2 key pair name for SSH access"
+  type        = string
+  default     = "sganadi-monitoring-key"
+}

@@ -40,3 +40,17 @@ module "vpc" {
   public_subnets     = var.public_subnets
   private_subnets    = var.private_subnets
 }
+
+
+# Compute Module
+module "compute" {
+  source = "./modules/compute"
+
+  project_name       = var.project_name
+  environment        = var.environment
+  vpc_id             = module.vpc.vpc_id
+  public_subnet_ids  = module.vpc.public_subnet_ids
+  private_subnet_ids = module.vpc.private_subnet_ids
+  key_name           = var.key_name
+}
+
