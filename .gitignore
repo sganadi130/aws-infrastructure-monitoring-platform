@@ -13,3 +13,6 @@ terraform.tfvars
 
 # OS
 .DS_Store
+
+# Lambda zip files
+lambda/*.zip

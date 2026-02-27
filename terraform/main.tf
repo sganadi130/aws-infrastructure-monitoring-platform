@@ -54,3 +54,13 @@ module "compute" {
   key_name           = var.key_name
 }
 
+# Lambda Module
+module "lambda" {
+  source = "./modules/lambda"
+
+  project_name      = var.project_name
+  environment       = var.environment
+  aws_region        = var.aws_region
+  ec2_scheduler_zip = "../lambda/ec2_scheduler.zip"
+  ebs_cleanup_zip   = "../lambda/ebs_cleanup.zip"
+}

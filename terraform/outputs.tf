@@ -27,3 +27,13 @@ output "monitoring_public_ip" {
   description = "Public IP of monitoring instance"
   value       = module.compute.monitoring_public_ip
 }
+
+output "ec2_scheduler_arn" {
+  description = "ARN of EC2 scheduler Lambda function"
+  value       = module.lambda.ec2_scheduler_arn
+}
+
+output "ebs_cleanup_arn" {
+  description = "ARN of EBS cleanup Lambda function"
+  value       = module.lambda.ebs_cleanup_arn
+}
